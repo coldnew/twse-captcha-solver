@@ -28,6 +28,12 @@ You need to download the captcha image manually from [website](http://bsr.twse.c
 
 ![Screenshot](https://github.com/coldnew/twse-captcha-solver/raw/master/screenshot.png)
 
+## Note
+
+This application **ONLY** work on captcha like this:
+
+![Sample](https://github.com/coldnew/twse-captcha-solver/raw/master/sample.png)
+
 ## License
 
 Copyright © 2017 Yen-Chin, Lee <<coldnew.tw@gmail.com>>
