@@ -29,6 +29,7 @@
 #include <tesseract/baseapi.h>
 #include <regex>
 
+#ifdef ENABLE_HIGUI
 void showManyImages(char *title, cv::Mat img1, cv::Mat img2, cv::Mat img3, cv::Mat img4)
 {
     cv::Mat window;
@@ -37,6 +38,7 @@ void showManyImages(char *title, cv::Mat img1, cv::Mat img2, cv::Mat img3, cv::M
     cv::hconcat(window, img4, window);
     cv::imshow(title, window);
 }
+#endif  // ENABLE_HIGUI
 
 cv::Mat clean_captcha(const char *file)
 {
@@ -61,8 +63,10 @@ cv::Mat clean_captcha(const char *file)
     cv::Mat captcha_denoise;
     cv::fastNlMeansDenoising(captcha_erode, captcha_denoise, 50);
 
+#ifdef ENABLE_HIGUI
     // display every step result
     showManyImages("captcha", captcha, captcha_bw, captcha_erode, captcha_denoise);
+#endif // ENABLE_HIGUI
 
     return captcha_denoise;
 }
@@ -95,9 +99,14 @@ int main(int argc, char *argv[])
     }
 
     cv::Mat img = clean_captcha(argv[1]);
-    std::cout << "Captcha: "<< image_to_string(img) << std::endl;
+
+#ifdef ENABLE_HIGUI
     // Wait for user input to stop image display
+    std::cout << "Captcha: "<< image_to_string(img) << std::endl;
     cv::waitKey();
+#else
+    std::cout << image_to_string(img) << std::endl;
+#endif // ENABLE_HIGUI
 
     return 0;
 }
