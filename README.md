@@ -25,7 +25,7 @@ If you just want to get the captcha result and don't want do see any GUI display
 ```sh
 mkdir build && cd $_
 cmake -DEANBLE_HIGUI=OFF ..
-make
+make -j9
 ```
 
 ## Usage
