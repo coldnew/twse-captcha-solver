@@ -3,6 +3,8 @@
 
 A simple captcha solver for Taiwan Stock Exchange's [website](http://bsr.twse.com.tw/bshtm/). The algorithm is based on [hhschu](https://github.com/hhschu/Captcha_OCR)'s python method.
 
+This project is written in C++, if you want java version, you can take a look at [coldnew/twse-captcha-solver-java](https://github.com/coldnew/twse-captcha-solver-java).
+
 ## Requirement
 
 To build this application, you need to install following libraries:
